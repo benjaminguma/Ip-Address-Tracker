@@ -81,6 +81,7 @@ const App = () => {
       });
     } catch (error) {
       setLocationData(previousData);
+      setIsSubmitting(false);
       return;
     }
     const { lat, lng } = userInfo.location;

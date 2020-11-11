@@ -106,6 +106,7 @@ const Field = ({
             backgroundColor: "#fff",
             padding: ".4rem .8rem",
             borderRadius: "5px",
+            border: window.innerWidth < 600 ? "1px solid hsl(0, 0%, 59%)" : "",
           }}
         >
           {error}

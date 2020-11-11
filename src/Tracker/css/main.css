@@ -113,7 +113,8 @@ ul {
   padding: 2.8rem 4rem 0 4rem;
   position: relative;
   background-image: url(../images//pattern-bg.png);
-  background-size: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .header h1 {
@@ -145,6 +146,14 @@ ul {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  position: relative;
+  z-index: 3;
+}
+
+@media (max-width: 28.125em) {
+  .form__group input:focus {
+    border: 1px solid #2b2b2b;
+  }
 }
 
 .form__group input,
@@ -167,7 +176,7 @@ ul {
 @media (max-width: 28.125em) {
   .form__group input,
   .form__group input:disabled {
-    width: 65vw;
+    width: 66vw;
   }
 }
 
@@ -249,6 +258,7 @@ ul {
   gap: 2rem 3rem;
   -webkit-box-shadow: 0 2rem 3rem rgba(43, 43, 43, 0.03);
           box-shadow: 0 2rem 3rem rgba(43, 43, 43, 0.03);
+  margin-top: -3rem;
 }
 
 @media (max-width: 67.625em) {
@@ -279,6 +289,7 @@ ul {
     left: 50%;
     -webkit-transform: translate(-50%, -31%);
             transform: translate(-50%, -31%);
+    z-index: -1;
   }
 }
 

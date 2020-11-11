@@ -97,7 +97,9 @@ ul {
   padding: 2.8rem 4rem 0 4rem;
   position: relative;
   background-image: url(../images//pattern-bg.png);
-  background-size: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+
   h1 {
     justify-self: center;
   }
@@ -118,7 +120,14 @@ ul {
     margin: auto;
     overflow: hidden;
     justify-content: center;
+    position: relative;
+    z-index: 3;
 
+    input:focus {
+      @media (max-width: $gsm) {
+        border: 1px solid $col-gray-dark;
+      }
+    }
     input,
     input:disabled {
       width: 32vw;
@@ -132,7 +141,7 @@ ul {
         width: 57vw;
       }
       @media (max-width: $gsm) {
-        width: 65vw;
+        width: 66vw;
       }
 
       &::placeholder {
@@ -173,6 +182,7 @@ ul {
   justify-content: center;
   gap: 2rem 3rem;
   box-shadow: 0 2rem 3rem rgba($col-gray-dark, 0.03);
+  margin-top: -3rem;
 
   @media (max-width: 1082/16 * 1em) {
     width: 87vw;
@@ -190,6 +200,7 @@ ul {
     top: 100%;
     left: 50%;
     transform: translate(-50%, -31%);
+    z-index: -1;
   }
   @media (min-height: 800/16 * 1em) and (max-width: 600/16 * 1em) {
     transform: translate(-50%, -50%);

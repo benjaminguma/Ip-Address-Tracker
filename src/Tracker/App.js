@@ -117,31 +117,29 @@ const App = () => {
           onSubmit={handleSubmit}
         >
           <h1 className="head__pri light cap">IP address Tracker</h1>
-          <div className="form__group">
-            <Field
-              className="form-input"
-              type="text"
-              name="query"
-              placeholder="search for an ip address or domain"
-              value={state.fields.query.value}
-              isValid={state.fields.query.isValid}
-              typeOfField={state.fields.query.type}
-              validators={[validateIp(), validateDomain()]}
-              error="please input a valid ip address or domain"
-              updateParentForm={handleFormUpdate}
-              isSubmitting={isSubmitting}
+          <Field
+            className="form-input"
+            type="text"
+            name="query"
+            placeholder="search for an ip address or domain"
+            value={state.fields.query.value}
+            isValid={state.fields.query.isValid}
+            typeOfField={state.fields.query.type}
+            validators={[validateIp(), validateDomain()]}
+            error="please input a valid ip address or domain"
+            updateParentForm={handleFormUpdate}
+            isSubmitting={isSubmitting}
+          >
+            <button
+              className={`form__submit ${isSubmitting ? " disabled" : null}`}
+              type="submit"
+              disabled={isSubmitting && true}
             >
-              <button
-                className={`form__submit ${isSubmitting ? " disabled" : null}`}
-                type="submit"
-                disabled={isSubmitting && true}
-              >
-                <svg>
-                  <use xlinkHref={arrow + "#arrow"}></use>
-                </svg>
-              </button>
-            </Field>
-          </div>
+              <svg>
+                <use xlinkHref={arrow + "#arrow"}></use>
+              </svg>
+            </button>
+          </Field>
         </form>
         <ul className="result">
           {data.map((key, index) => (

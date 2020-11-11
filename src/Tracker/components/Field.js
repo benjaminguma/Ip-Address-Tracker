@@ -76,26 +76,42 @@ const Field = ({
   }, [value]);
 
   return (
-    <div className="form__group">
-      <input
-        style={{
-          color: state.isTouched && !state.isValid && "#f00",
-          backgroundColor: isSubmitting && "#f2f2f2",
-        }}
-        className="form__input"
-        type={type}
-        placeholder={placeholder}
-        label={label}
-        disabled={disabled}
-        value={state.value}
-        onBlur={handleTouched}
-        onChange={handleUpdate}
-        name={name}
-        disabled={isSubmitting}
-      />
-      {children}
-      {/* {state.isTouched && !state.isValid && <p>{error}</p>} */}
-    </div>
+    <React.Fragment>
+      <div className="form__group" style={{ position: "relative" }}>
+        <input
+          style={{
+            color: state.isTouched && !state.isValid && "#f00",
+            backgroundColor: isSubmitting && "#f2f2f2",
+          }}
+          className="form__input"
+          type={type}
+          placeholder={placeholder}
+          label={label}
+          disabled={disabled}
+          value={state.value}
+          onBlur={handleTouched}
+          onChange={handleUpdate}
+          name={name}
+          disabled={isSubmitting}
+        />
+        {children}
+      </div>
+      {state.isTouched && !state.isValid && (
+        <p
+          style={{
+            justifySelf: "center",
+            marginTop: "-.8rem",
+            fontSize: "1.3rem",
+            color: "#f00",
+            backgroundColor: "#fff",
+            padding: ".4rem .8rem",
+            borderRadius: "5px",
+          }}
+        >
+          {error}
+        </p>
+      )}
+    </React.Fragment>
   );
 };
 

@@ -150,12 +150,6 @@ ul {
   z-index: 3;
 }
 
-@media (max-width: 28.125em) {
-  .form__group input:focus {
-    border: 1px solid #2b2b2b;
-  }
-}
-
 .form__group input,
 .form__group input:disabled {
   width: 32vw;
@@ -216,6 +210,12 @@ ul {
   .form__group input::placeholder,
   .form__group input:disabled::placeholder {
     font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 34.375em) {
+  .form__group input:focus {
+    border: 2px solid #2b2b2b;
   }
 }
 
@@ -287,16 +287,16 @@ ul {
     position: absolute;
     top: 100%;
     left: 50%;
-    -webkit-transform: translate(-50%, -31%);
-            transform: translate(-50%, -31%);
+    -webkit-transform: translate(-50%, -28%);
+            transform: translate(-50%, -28%);
     z-index: -1;
   }
 }
 
 @media (min-height: 50em) and (max-width: 37.5em) {
   .result {
-    -webkit-transform: translate(-50%, -50%);
-            transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -46%);
+            transform: translate(-50%, -46%);
   }
 }
 

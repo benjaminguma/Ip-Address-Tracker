@@ -123,11 +123,6 @@ ul {
     position: relative;
     z-index: 3;
 
-    input:focus {
-      @media (max-width: $gsm) {
-        border: 1px solid $col-gray-dark;
-      }
-    }
     input,
     input:disabled {
       width: 32vw;
@@ -149,6 +144,12 @@ ul {
         @media (max-width: $gsm) {
           font-size: 1.5rem;
         }
+      }
+    }
+
+    input:focus {
+      @media (max-width: 550/16 * 1em) {
+        border: 2px solid $col-gray-dark;
       }
     }
   }
@@ -199,11 +200,11 @@ ul {
     position: absolute;
     top: 100%;
     left: 50%;
-    transform: translate(-50%, -31%);
+    transform: translate(-50%, -28%);
     z-index: -1;
   }
   @media (min-height: 800/16 * 1em) and (max-width: 600/16 * 1em) {
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -46%);
   }
 
   &__box {

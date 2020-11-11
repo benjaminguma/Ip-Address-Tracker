@@ -1,0 +1,331 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  outline: none;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+@media (max-width: 75em) {
+  html {
+    font-size: 59%;
+  }
+}
+
+@media (max-width: 57.6875em) {
+  html {
+    font-size: 58%;
+  }
+}
+
+@media (max-width: 28.125em) {
+  html {
+    font-size: 56%;
+  }
+}
+
+body {
+  font-family: "Rubik", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.grid-con {
+  min-height: 100vh;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: min-content 1fr;
+      grid-template-rows: -webkit-min-content 1fr;
+      grid-template-rows: min-content 1fr;
+}
+
+@media (max-width: 37.5em) {
+  .grid-con {
+    min-height: 130vh;
+    -ms-grid-rows: 38vh 2.3fr;
+        grid-template-rows: 38vh 2.3fr;
+  }
+}
+
+button {
+  border: none;
+  background-color: #888;
+}
+
+ul {
+  list-style-type: none;
+}
+
+.head__small {
+  font-size: 1.2rem;
+  letter-spacing: 2px;
+}
+
+@media (max-width: 43.75em) {
+  .head__small {
+    font-weight: 900;
+  }
+}
+
+.head__pri {
+  font-size: 3rem;
+}
+
+.head__med {
+  font-size: 2.4rem;
+}
+
+@media (max-width: 57.6875em) {
+  .head__med {
+    font-size: 2.3rem;
+  }
+}
+
+.cap {
+  text-transform: capitalize;
+}
+
+.upp {
+  text-transform: uppercase;
+}
+
+.light {
+  color: #fff;
+}
+
+.light-1 {
+  color: #969696;
+}
+
+.dark {
+  color: #2b2b2b;
+}
+
+.disabled {
+  background-color: #787878 !important;
+}
+
+.header {
+  padding: 2.8rem 4rem 0 4rem;
+  position: relative;
+  background-image: url(../images//pattern-bg.png);
+  background-size: 100%;
+}
+
+.header h1 {
+  -ms-grid-column-align: center;
+      justify-self: center;
+}
+
+.header__form {
+  display: -ms-grid;
+  display: grid;
+  gap: 2.3rem 0;
+}
+
+@media (max-width: 37.5em) {
+  .header__form {
+    gap: 1.5rem;
+  }
+}
+
+.form__group {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr max-content;
+      grid-template-columns: 1fr -webkit-max-content;
+      grid-template-columns: 1fr max-content;
+  border-radius: 10px;
+  margin: auto;
+  overflow: hidden;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.form__group input,
+.form__group input:disabled {
+  width: 32vw;
+  padding: 1.5rem 0.8rem;
+  font-size: 1.8rem;
+  border: none;
+  color: gray;
+  background-color: #fff;
+}
+
+@media (max-width: 57.6875em) {
+  .form__group input,
+  .form__group input:disabled {
+    width: 57vw;
+  }
+}
+
+@media (max-width: 28.125em) {
+  .form__group input,
+  .form__group input:disabled {
+    width: 65vw;
+  }
+}
+
+.form__group input::-webkit-input-placeholder,
+.form__group input:disabled::-webkit-input-placeholder {
+  color: #969696;
+}
+
+.form__group input:-ms-input-placeholder,
+.form__group input:disabled:-ms-input-placeholder {
+  color: #969696;
+}
+
+.form__group input::-ms-input-placeholder,
+.form__group input:disabled::-ms-input-placeholder {
+  color: #969696;
+}
+
+.form__group input::placeholder,
+.form__group input:disabled::placeholder {
+  color: #969696;
+}
+
+@media (max-width: 28.125em) {
+  .form__group input::-webkit-input-placeholder,
+  .form__group input:disabled::-webkit-input-placeholder {
+    font-size: 1.5rem;
+  }
+  .form__group input:-ms-input-placeholder,
+  .form__group input:disabled:-ms-input-placeholder {
+    font-size: 1.5rem;
+  }
+  .form__group input::-ms-input-placeholder,
+  .form__group input:disabled::-ms-input-placeholder {
+    font-size: 1.5rem;
+  }
+  .form__group input::placeholder,
+  .form__group input:disabled::placeholder {
+    font-size: 1.5rem;
+  }
+}
+
+.form__submit {
+  display: -ms-grid;
+  display: grid;
+  place-items: center;
+  padding: 1rem 1.9rem;
+  background-color: #2b2b2b;
+  cursor: pointer;
+}
+
+.form__submit svg {
+  width: 2rem;
+  height: 2rem;
+  display: inline-block;
+  -webkit-transform: scale(1.2) translateY(12%);
+          transform: scale(1.2) translateY(12%);
+}
+
+.result {
+  margin: auto;
+  width: 82vw;
+  background-color: #fff;
+  margin-top: -1rem;
+  -webkit-transform: translateY(50%);
+          transform: translateY(50%);
+  display: -ms-grid;
+  display: grid;
+  padding: 4.3rem 2.5rem;
+  border-radius: 10px;
+  -ms-grid-columns: (minmax(20rem, 1fr))[auto-fit];
+      grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: start;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: 2rem 3rem;
+  -webkit-box-shadow: 0 2rem 3rem rgba(43, 43, 43, 0.03);
+          box-shadow: 0 2rem 3rem rgba(43, 43, 43, 0.03);
+}
+
+@media (max-width: 67.625em) {
+  .result {
+    width: 87vw;
+  }
+}
+
+@media (max-width: 65em) {
+  .result {
+    -ms-grid-columns: (1fr)[2];
+        grid-template-columns: repeat(2, 1fr);
+    gap: 2.5rem 4rem;
+  }
+}
+
+@media (max-width: 37.5em) {
+  .result {
+    padding: 2.5rem;
+    -ms-grid-columns: initial;
+        grid-template-columns: initial;
+    -webkit-box-pack: initial;
+        -ms-flex-pack: initial;
+            justify-content: initial;
+    gap: 2.5rem 0;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -31%);
+            transform: translate(-50%, -31%);
+  }
+}
+
+@media (min-height: 50em) and (max-width: 37.5em) {
+  .result {
+    -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+  }
+}
+
+.result__box {
+  position: relative;
+  display: -ms-grid;
+  display: grid;
+  gap: 0.7rem 0;
+}
+
+@media (max-width: 65em) {
+  .result__box {
+    text-align: center;
+  }
+}
+
+.result__box:not(:last-child)::before {
+  position: absolute;
+  content: "";
+  width: 1px;
+  height: 120%;
+  top: -10%;
+  right: 0;
+  background-color: #dbdbdb;
+  border: 10px;
+}
+
+@media (max-width: 37.5em) {
+  .result__box:not(:last-child)::before {
+    display: none;
+  }
+}
+
+@media (max-width: 65em) {
+  .result__box:nth-child(2n)::before {
+    display: none;
+  }
+}
+
+.main {
+  background-color: #f4f2f2;
+}
+/*# sourceMappingURL=main.css.map */

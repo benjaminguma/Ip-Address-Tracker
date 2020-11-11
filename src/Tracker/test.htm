@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, 
+initial-scale=1.0"/>
+    <title>ip address tracker</title>
+    <link rel="stylesheet" href="../css/main.css"/>
+    <link rel="stylesheet" 
+href="https://fonts.googleapis.com/css?family=Rubik"/>
+  </head>
+  <body class="grid-con">
+    <header class="header">
+      <form class="header__form" action="">
+        <h1 class="head__pri light cap">IP address Tracker</h1>
+        <div class="form__group">
+          <input class="form-input" type="text" name="query" 
+placeholder="search for an ip address or domain"/>
+          <button class="form__submit" type="submit">
+            <svg>
+              <use xlink:href="../images/icon-arrow.svg#arrow"></use>
+            </svg>
+          </button>
+        </div>
+      </form>
+      <ul class="result">
+        <li class="result__box">
+          <h3 class="head__small upp light-1">ip address</h3>
+          <h2 class="head__med dark">192.168.174.3</h2>
+        </li>
+        <li class="result__box">
+          <h3 class="head__small upp light-1">location</h3>
+          <h2 class="head__med dark">lagos/nigeria</h2>
+        </li>
+        <li class="result__box">
+          <h3 class="head__small upp light-1">timezone</h3>
+          <h2 class="head__med dark">utc-05:00</h2>
+        </li>
+        <li class="result__box">
+          <h3 class="head__small upp light-1">isp</h3>
+          <h2 class="head__med dark">spaceX starlink</h2>
+        </li>
+      </ul>
+    </header>
+    <main class="main">
+      <section class="map"> </section>
+    </main>
+  </body>
+</html>
+

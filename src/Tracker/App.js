@@ -56,6 +56,7 @@ const App = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [state, dispatch] = useReducer(Appreducer, init);
   const [locationData, setLocationData] = useState(locationX);
+  const [error, setError] = useState("");
   const handleFormUpdate = ({ value, name, isValid, typeOfField }) =>
     dispatch({ type: "UPDATE_FIELD", value, name, isValid, typeOfField });
 
@@ -81,7 +82,14 @@ const App = () => {
       });
     } catch (error) {
       setLocationData(previousData);
-      setIsSubmitting(false);
+      setError(
+        `error occured while trying to parse this ${state.fields.query.typeOfField}.please check and try again`
+      );
+      setTimeout(() => {
+        setIsSubmitting(false);
+        setError("");
+      }, 3500);
+
       return;
     }
     const { lat, lng } = userInfo.location;
@@ -90,6 +98,7 @@ const App = () => {
     dispatch({ type: "RESET" });
     setIsSubmitting(false);
   };
+
   useEffect(() => {
     (async function () {
       try {
@@ -103,7 +112,14 @@ const App = () => {
         setLocationData(generateLocationData(userInfo));
         setCoordinates({ lat, lng });
       } catch (error) {
-        console.log(error);
+        console.error(error);
+        setError(
+          `error occured while trying to get your IpAddress please check your connection`
+        );
+        setTimeout(() => {
+          setIsSubmitting(false);
+          setError("");
+        }, 3500);
       }
     })();
   }, []);
@@ -130,6 +146,7 @@ const App = () => {
             error="please input a valid ip address or domain"
             updateParentForm={handleFormUpdate}
             isSubmitting={isSubmitting}
+            serverError={error}
           >
             <button
               className={`form__submit ${isSubmitting ? " disabled" : null}`}

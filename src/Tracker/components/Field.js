@@ -11,7 +11,7 @@ const reducer = (state, action) => {
         isValid,
         err,
         type: typeOfField,
-        isTouched: value === "" && false,
+        isTouched: !value ? false : state.isTouched,
       };
     }
     case "TOUCHED":
@@ -29,6 +29,17 @@ const init = {
   isValid: false,
   isTouched: false,
 };
+const errorTextStyles = {
+  justifySelf: "center",
+  marginTop: "-.8rem",
+  fontSize: "1.3rem",
+  color: "#f00",
+  backgroundColor: "#fff",
+  padding: ".4rem .8rem",
+  borderRadius: "5px",
+  border: window.innerWidth < 600 ? "1px solid #f2f2f2" : "",
+  marginBottom: "1rem",
+};
 const Field = ({
   type,
   placeholder,
@@ -43,6 +54,7 @@ const Field = ({
   children,
   typeOfField,
   isSubmitting,
+  serverError,
 }) => {
   const [state, dispatch] = useReducer(reducer, {
     ...init,
@@ -81,7 +93,7 @@ const Field = ({
       <div className="form__group" style={{ position: "relative" }}>
         <input
           style={{
-            color: state.isTouched && !state.isValid && "#f00",
+            color: state.isTouched && !state.isValid ? "#f00" : "",
             backgroundColor: isSubmitting && "#f2f2f2",
           }}
           className="form__input"
@@ -97,23 +109,12 @@ const Field = ({
         />
         {children}
       </div>
-      {state.isTouched && !state.isValid ? (
-        <p
-          style={{
-            justifySelf: "center",
-            marginTop: "-.8rem",
-            fontSize: "1.3rem",
-            color: "#f00",
-            backgroundColor: "#fff",
-            padding: ".4rem .8rem",
-            borderRadius: "5px",
-            border: window.innerWidth < 600 ? "1px solid #f2f2f2" : "",
-            marginBottom: "1rem",
-          }}
-        >
-          {state.err}
-        </p>
-      ) : null}
+      {state.isTouched && !state.isValid && (
+        <p style={errorTextStyles}>{state.err}</p>
+      )}
+      {serverError && (
+        <p style={{ ...errorTextStyles, zIndex: 1 }}>{serverError}</p>
+      )}
     </React.Fragment>
   );
 };

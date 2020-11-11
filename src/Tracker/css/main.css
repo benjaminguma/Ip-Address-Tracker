@@ -215,8 +215,8 @@ ul {
 
 @media (max-width: 34.375em) {
   .form__group input:focus {
-    -webkit-box-shadow: 0 5px 8px rgba(0, 0, 0, 0.05);
-            box-shadow: 0 5px 8px rgba(0, 0, 0, 0.05);
+    -webkit-box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
   }
 }
 

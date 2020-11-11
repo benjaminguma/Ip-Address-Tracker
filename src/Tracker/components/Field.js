@@ -4,7 +4,7 @@ import validateOneOf from "../utils/validtors";
 const reducer = (state, action) => {
   const { type, validators, value, err, isValid, typeOfField } = action;
   switch (type) {
-    case "UPDATE":
+    case "UPDATE": {
       return {
         ...state,
         value: value,
@@ -13,7 +13,7 @@ const reducer = (state, action) => {
         type: typeOfField,
         isTouched: value === "" && false,
       };
-
+    }
     case "TOUCHED":
       return {
         ...state,
@@ -54,7 +54,7 @@ const Field = ({
   const handleUpdate = (e) => {
     const { value } = e.target;
     const { isValid, typeOfField } = validateOneOf(validators, value);
-    updateParentForm({ value, name, isValid, typeOfField });
+
     dispatch({
       type: "UPDATE",
       value,
@@ -63,6 +63,7 @@ const Field = ({
       isValid,
       typeOfField,
     });
+    updateParentForm({ value, name, isValid, typeOfField });
   };
   useEffect(() => {
     dispatch({
@@ -73,7 +74,7 @@ const Field = ({
       isValid,
       typeOfField,
     });
-  }, [value]);
+  }, [value, isValid]);
 
   return (
     <React.Fragment>
@@ -96,7 +97,7 @@ const Field = ({
         />
         {children}
       </div>
-      {state.isTouched && !state.isValid && (
+      {state.isTouched && !state.isValid ? (
         <p
           style={{
             justifySelf: "center",
@@ -106,12 +107,13 @@ const Field = ({
             backgroundColor: "#fff",
             padding: ".4rem .8rem",
             borderRadius: "5px",
-            border: window.innerWidth < 600 ? "1px solid hsl(0, 0%, 59%)" : "",
+            border: window.innerWidth < 600 ? "1px solid #f2f2f2" : "",
+            marginBottom: "1rem",
           }}
         >
           {error}
         </p>
-      )}
+      ) : null}
     </React.Fragment>
   );
 };

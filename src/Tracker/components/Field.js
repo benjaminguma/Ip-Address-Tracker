@@ -111,7 +111,7 @@ const Field = ({
             marginBottom: "1rem",
           }}
         >
-          {error}
+          {state.err}
         </p>
       ) : null}
     </React.Fragment>

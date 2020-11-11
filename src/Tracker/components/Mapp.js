@@ -17,7 +17,7 @@ const Mapp = (props) => {
 
     map.setView([lat, lng], 15);
     const layer = new window.L.TileLayer(
-      "http://{s}.tiles.wmflabs.org/bw-mapnik/{z}/{x}/{y}.png"
+      "http://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png"
     );
     map.addLayer(layer);
     const iconOptions = {
